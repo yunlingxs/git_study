@@ -1,0 +1,8 @@
+打开目录        
+           cd  <path>
+
+创建文件夹
+           mkdir  <floder name>
+
+显示当前目录
+          pwd
