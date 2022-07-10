@@ -1,0 +1,81 @@
+
+So, to understand git, we need to understand
+what the SHA-1 hash is. The concept here is
+that any file in the computer you can think
+of as a series of bytes. If you put those
+bytes from left to right, you can think of
+every computer file as actually a very large
+number. There's an interesting function called
+SHA-1, if you click this link you can look
+at the actual definition by the Internet Engineering
+Task Force (IETF), and it has the following
+very curious property. Basically, any binary
+number up to 2 to the 64th bits, which is
+really big number, can be rapidly mapped to
+a 160 bit number that we can visualize as
+a 40 character long number in hexadecimal,
+which is base 16 format. The numbers add up
+because one hex character is 2 to the 4th
+or 16 values or 4 bits, so 40 hex characters
+is 160 bits. And here's an example of doing
+this in node, so you do require crypto, you
+take the built in crypto library and this
+is the kind of invocation, you're creating
+a SHA-1 hash function and you're passing it
+in this data, "Hello world." and you're saying
+that data is ascii formatted and you're doing
+a digest, a hex digest, to output it as hex
+decimal, and this is what a SHA-1 hash looks
+like. It's a 40 character long string of hexadecimal
+digits. The important thing about SHA is that
+it behaves very differently from most normal
+functions like cosine or exponential for which
+you can expect continuity. To understand this,
+essentially if you've got two numbers that
+are unequal over here, it's very likely that
+their SHAs are not equal. So inequality of
+two numbers means that's very likely that
+their SHAs are also not equal. To understand
+what this means, it's also got another property
+which is that deformations or perturbations
+to the output turn out very differently for
+SHA than they do for normal functions. So
+here's normal function, let's define x as
+PI/8 and dx is PI/128, notice we're using
+the math library that's built into Javascript,
+and if we calculate just the cosine of x,
+that gives us this value, cosine of x + dx
+or x - dx gives us values that are very close
+to the initial value of .923. But, SHA by
+contrast is quite different, even small perturbations
+to the "Hello world." string result in completely
+different SHA-1 values. So, here for example,
+we're defining a function as SHA-1 so we don't
+have to type it in over and over again, and
+notice if we add a space to the end of "Hello
+world." we get a completely different string
+out, the hex digest is totally different.
+If we subtract a ".", again totally different.
+If we put a space at the beginning, again
+totally different. So, in this manner, if
+you've got two strings that are different
+from each other, their outputs, their SHA-1s
+are also very very likely to be different
+from each other, and that's really the property
+of a really good hash function. So, the main
+thing to keep in mind though is, for the purposes
+of git, rather than carting around an entire
+file or looking at this multi megabyte file
+to determine if it's equal to another file,
+all you need is the SHA-1 hash of the file,
+and if the two SHA-1 hashes are unequal then
+whether this is one byte off from each other
+or a million bytes off, if this was an MP3
+file, and these were different from each other,
+you'd know almost certainly that they were
+different files, and so in this manner you
+can use the SHA-1 hash as sort of a unique
+key for a file or really any arrangement of
+bytes, and that's a property that git will
+use and this is what SHA-1 is.
+
