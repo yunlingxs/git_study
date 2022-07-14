@@ -1,0 +1,60 @@
+
+Alright, let's talk about git. We've been
+using git a few times already to clone remote
+repositories from Github, but the motivation
+behind git is obvious if you've ever worked
+on a program or word document that you've
+emailed back and forth, and it's got version
+1, version 2, version 3, final, version 4,
+final, final, final. That sounds very common.
+It's a very frequent problem that people encounter,
+and the reason is that there's a fundamental
+aspect to writing a document which is that
+every character you type, every time you hit
+enter can be thought of as a new version of
+the document. Now, in general, you don't necessarily
+share it on a character by character basis,
+but you pick particular points to make commits
+at, for example, you insert a paragraph or
+a particular function if you are talking about
+code and the versions you choose to save in
+a version control database are important or
+useful versions of the code or the document
+in some sense. git is a tool for managing
+multiple versions of code at the same time
+and it allows you to do this in a multiplayer
+environment where lots of people are editing
+the same file at the same time. This particular
+link has some great figures. It's from the
+actual git-scm, the official source code management
+git-scm website. The concept is this is the
+evolution of version control. You've got a
+local computer, here's your database of versions,
+you're currently working on version 3. Here's
+a central version control server like sub
+version where each of them are getting checkouts
+of this, and here is a distributed version
+control system like git and in this case each
+computer not only communicates with the server
+but also has its own copy of the version database
+so if this goes down or this goes down, computer
+A can still not only version files but itself
+act as a server, and moreover, add version
+4 or version 5 that does not push to this
+server or allowed to be cloned by this computer.
+Instead those version 4 and 5 that remain
+local to computer A and all the other computers
+that it chose to allow access to those new
+versions. This is the concept of a distributed
+version control system where each computer
+has its own copy of the database, as well
+as, syncing those versions with each other.
+In particular, git, you can think of it as
+replacing and superseding previous version
+control programs like cvs and svn and the
+like, and it's much faster than comparable
+version control systems like mercury or hg.
+We're going to talk about git by going through
+a tutorial. Before we do that though we are
+going to need to know about the SHA-1 hash.
+
